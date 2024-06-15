@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZT Website</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            opacity: 1; /* Initially show body to apply fade-in effect */
+            transition: opacity 0.4s ease-in-out; /* Fade-in transition effect */
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header img {
+            max-height: 70px; /* Increase logo size */
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px; /* Increase spacing */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px; /* Increase button size */
+            display: inline-block;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        /* Main content styles */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Initially hide sections */
+            transition: opacity 0.4s ease-in-out; /* Fade-in and fade-out transition effect */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* Image at the bottom of Guide section */
+        #guide img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // JavaScript for handling navigation and fade-in/fade-out effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const sections = document.querySelectorAll("section");
+
+            // Function to fade in a section
+            function fadeIn(element) {
+                element.style.opacity = 1;
+            }
+
+            // Function to fade out a section
+            function fadeOut(element) {
+                element.style.opacity = 0;
+            }
+
+            // Event listener for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    // Fade out all sections
+                    sections.forEach(section => {
+                        if (section !== targetSection && section.style.opacity !== "0") {
+                            fadeOut(section);
+                        }
+                    });
+
+                    // Fade in the target section
+                    fadeIn(targetSection);
+
+                    // Scroll to the top of the section
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Initially show the Home section and fade it in
+            const homeSection = document.getElementById("home");
+            fadeIn(homeSection);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="ZTLogo.jpg" alt="ZT Logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#guide">Guide</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to the Home Page</h1>
+            <p>Welcome to the Home Page of Zixed Tools! Check out some of the other pages so you can understand what this website is about!</p>
+        </section>
+
+        <section id="about">
+            <h1>About Us</h1>
+            <p>Zixed Tools is a Unity Asset Package that gives you scripts for your Gorilla Tag fangame, and some other useful assets! 100% free to use.</p>
+        </section>
+
+        <section id="guide">
+            <h1>Guide</h1>
+            <p>To get started with Zixed Tools, you want to download the ZixedTools.unitypackage file from this link github.com/Zixed11/ZixedToolsDownload. You then want to import it into your unity project, and at the top you should notice something different, it will say "ZixedDev's Tools" and then you should be all set up</p>
+            <img src="zixedtoolsexample.png" alt="Zixed Tools Example">
+        </section>
+    </main>
+</body>
+</html>

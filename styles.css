@@ -1,0 +1,89 @@
+/* Reset default styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Century Gothic', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh; /* Ensure full height */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    height: 120px; /* Larger logo */
+    width: auto;
+}
+
+.navigation {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #66c2ff;
+}
+
+.content {
+    margin-left: 250px; /* Adjusted to match sidebar width */
+    padding: 80px;
+    background-color: #fff; /* White background for content area */
+    flex: 1;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    margin-top: auto; /* Ensure footer stays at bottom */
+}
+
+footer p {
+    margin: 0;
+}
